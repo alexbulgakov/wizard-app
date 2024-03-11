@@ -2,10 +2,13 @@ import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import {
   Button,
   Div,
+  FormItem,
+  FormLayoutGroup,
   Group,
   Header,
   Panel,
   PanelHeader,
+  Textarea,
 } from '@vkontakte/vkui';
 
 export function FactsPage({ id }: { id: string }) {
@@ -27,6 +30,15 @@ export function FactsPage({ id }: { id: string }) {
           </Button>
         </Div>
       </Group>
+
+      <FormLayoutGroup>
+        <FormItem top="Нажми на кнопку, чтобы получить интересный факт">
+          <Textarea placeholder="Здесь будет важная информация" />
+        </FormItem>
+        <FormItem>
+          <Button type="submit">Получить</Button>
+        </FormItem>
+      </FormLayoutGroup>
     </Panel>
   );
 }
