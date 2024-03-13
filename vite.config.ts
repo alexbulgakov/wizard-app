@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
+import path from 'path';
 
 function handleModuleDirectivesPlugin() {
   return {
@@ -14,16 +15,13 @@ function handleModuleDirectivesPlugin() {
   };
 }
 
-/**
- * Some chunks may be large.
- * This will not affect the loading speed of the site.
- * We collect several versions of scripts that are applied depending on the browser version.
- * This is done so that your code runs equally well on the site and in the odr.
- * The details are here: https://dev.vk.com/mini-apps/development/on-demand-resources.
- */
 export default defineConfig({
   base: './',
-
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
   plugins: [
     react(),
     handleModuleDirectivesPlugin(),

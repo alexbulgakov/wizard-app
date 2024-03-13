@@ -13,6 +13,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import { transformVKBridgeAdaptivity } from '../shared/utils';
 import { router } from './routes';
 import { App } from './App';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const AppConfig = () => {
   const vkBridgeAppearance = useAppearance() || undefined;
@@ -21,6 +22,7 @@ export const AppConfig = () => {
   const { vk_platform } = parseURLSearchParamsForGetLaunchParams(
     window.location.search
   );
+  const queryClient = new QueryClient();
 
   return (
     <ConfigProvider
@@ -32,7 +34,9 @@ export const AppConfig = () => {
       <AdaptivityProvider {...adaptivity}>
         <AppRoot mode="full" safeAreaInsets={vkBridgeInsets}>
           <RouterProvider router={router}>
-            <App />
+            <QueryClientProvider client={queryClient}>
+              <App />
+            </QueryClientProvider>
           </RouterProvider>
         </AppRoot>
       </AdaptivityProvider>
