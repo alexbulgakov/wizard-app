@@ -1,16 +1,16 @@
 import React, {
-  createContext,
-  useState,
-  ReactNode,
-  Dispatch,
   SetStateAction,
+  createContext,
+  ReactNode,
+  useState,
+  Dispatch,
 } from 'react';
 
 interface LoadingContextType {
-  loadingStatus: string;
+  setRepeatedRequest: Dispatch<SetStateAction<boolean>>;
   setLoadingStatus: Dispatch<SetStateAction<string>>;
   repeatedRequest: boolean;
-  setRepeatedRequest: Dispatch<SetStateAction<boolean>>;
+  loadingStatus: string;
 }
 
 export const LoadingContext = createContext<LoadingContextType | undefined>(
@@ -30,10 +30,10 @@ export const LoadingProvider: React.FC<LoadingProviderProps> = ({
   return (
     <LoadingContext.Provider
       value={{
-        loadingStatus,
+        setRepeatedRequest,
         setLoadingStatus,
         repeatedRequest,
-        setRepeatedRequest,
+        loadingStatus,
       }}
     >
       {children}

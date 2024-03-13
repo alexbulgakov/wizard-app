@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction, useContext } from 'react';
+import { SetStateAction, useContext, Dispatch } from 'react';
+
 import { LoadingContext } from '../LoadingProvider.tsx';
 interface LoadingContextType {
-  loadingStatus: string;
+  setRepeatedRequest: Dispatch<SetStateAction<boolean>>;
   setLoadingStatus: Dispatch<SetStateAction<string>>;
   repeatedRequest: boolean;
-  setRepeatedRequest: Dispatch<SetStateAction<boolean>>;
+  loadingStatus: string;
 }
 
 export const useLoading = (): LoadingContextType => {

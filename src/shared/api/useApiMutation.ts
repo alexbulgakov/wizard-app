@@ -1,19 +1,20 @@
-import axios from 'axios';
 import type { CancelToken } from 'axios';
-import { useMutation, UseMutationOptions } from '@tanstack/react-query';
+
+import { UseMutationOptions, useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 
 interface ApiError {
   message: string;
 }
 
 interface ApiMutationParams {
-  url: string;
   options?: UseMutationOptions<
     Record<string, unknown>,
     ApiError,
     MutationFunctionArgs,
     unknown
   >;
+  url: string;
 }
 
 interface MutationFunctionArgs {
@@ -21,7 +22,7 @@ interface MutationFunctionArgs {
   cancelToken?: CancelToken;
 }
 
-export const useApiMutation = ({ url, options }: ApiMutationParams) => {
+export const useApiMutation = ({ options, url }: ApiMutationParams) => {
   return useMutation({
     ...options,
     mutationFn: async ({ queryParams, cancelToken }) => {
