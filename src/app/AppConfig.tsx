@@ -14,6 +14,7 @@ import { transformVKBridgeAdaptivity } from '../shared/utils';
 import { router } from './routes';
 import { App } from './App';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { LoadingProvider } from '@/shared/context/index.ts';
 
 export const AppConfig = () => {
   const vkBridgeAppearance = useAppearance() || undefined;
@@ -35,7 +36,9 @@ export const AppConfig = () => {
         <AppRoot mode="full" safeAreaInsets={vkBridgeInsets}>
           <RouterProvider router={router}>
             <QueryClientProvider client={queryClient}>
-              <App />
+              <LoadingProvider>
+                <App />
+              </LoadingProvider>
             </QueryClientProvider>
           </RouterProvider>
         </AppRoot>
