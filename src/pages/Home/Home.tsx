@@ -1,12 +1,12 @@
-import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import {
-  Button,
-  Div,
-  Group,
-  Header,
-  Panel,
   PanelHeader,
+  Button,
+  Header,
+  Group,
+  Panel,
+  Div,
 } from '@vkontakte/vkui';
+import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 
 export function Home({ id }: { id: string }) {
   const routeNavigator = useRouteNavigator();
@@ -17,20 +17,20 @@ export function Home({ id }: { id: string }) {
       <Group header={<Header mode="secondary">Меню</Header>}>
         <Div>
           <Button
+            onClick={() => routeNavigator.push('predictor')}
+            mode="secondary"
             stretched
             size="l"
-            mode="secondary"
-            onClick={() => routeNavigator.push('predictor')}
           >
             Возраст имени
           </Button>
         </Div>
         <Div>
           <Button
+            onClick={() => routeNavigator.push('facts')}
+            mode="secondary"
             stretched
             size="l"
-            mode="secondary"
-            onClick={() => routeNavigator.push('facts')}
           >
             Факты о котиках
           </Button>

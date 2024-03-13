@@ -1,0 +1,1 @@
+export { EstimatedAgePage } from './EstimatedAgePage';

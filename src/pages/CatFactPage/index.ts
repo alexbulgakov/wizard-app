@@ -1,0 +1,1 @@
+export { CatFactPage } from './CatFactPage';
