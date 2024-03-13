@@ -1,18 +1,18 @@
 import { FormItem, Textarea } from '@vkontakte/vkui';
 
 export function CatFact({
-  fact,
   textareaRef,
+  fact,
 }: {
-  fact: string;
   textareaRef: React.RefObject<HTMLTextAreaElement>;
+  fact: string;
 }) {
   return (
     <FormItem top="Нажми на кнопку, чтобы узнать котиков лучше">
       <Textarea
         placeholder="Здесь будет интересное о котиках"
-        value={fact}
         getRef={textareaRef}
+        defaultValue={fact}
       />
     </FormItem>
   );
