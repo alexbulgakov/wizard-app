@@ -1,4 +1,4 @@
-import { useFetchAgePrediction } from '@/features/serverResponse/getAge/index.ts';
+import { useFetchAgePrediction } from '@/features/userRequest/getAge/index.ts';
 import { SubmitHandler, Controller, useForm } from 'react-hook-form';
 import { Age } from '@/entities/serverResponse/ui/Age/Age.tsx';
 import { Form } from '@/entities/userRequest/index.ts';

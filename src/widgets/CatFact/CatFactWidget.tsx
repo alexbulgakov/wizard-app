@@ -1,4 +1,4 @@
-import { useFetchCatFact } from '@/features/serverResponse/getCatFact/index.ts';
+import { useFetchCatFact } from '@/features/userRequest/getCatFact/lib/useFetchCatFact.ts';
 import { CatFact } from '@/entities/serverResponse/ui/CatFact/CatFact.tsx';
 import { Form } from '@/entities/userRequest/index.ts';
 import { useLoading } from '@/shared/context/index.ts';
